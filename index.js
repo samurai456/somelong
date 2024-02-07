@@ -23,6 +23,10 @@ const attachWs = (req, res, next) => {
 }
 
 app.use(express.json());
+app.use(cors({
+    origin: 'https://ulugbekdilya.onrender.com',
+    methods: ['POST', 'PUT', 'GET']
+}));
 app.get('/test', (req, res) => {
    res.send({a: 200})
 });
