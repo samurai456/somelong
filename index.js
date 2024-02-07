@@ -23,6 +23,9 @@ const attachWs = (req, res, next) => {
 }
 
 app.use(express.json());
+app.get('/test', (req, res) => {
+   res.send({a: 200})
+});
 app.use('/api', verifyToken, attachWs, router);
 
 async function startApp(){
