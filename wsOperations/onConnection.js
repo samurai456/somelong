@@ -7,11 +7,11 @@ async function onConnection(ws){
 }
 
 async function onMessageSend(){
-    const messages = await Message.find().sort('-created_at').limit(10);
+    const messages = await Message.find();
     clients.forEach(cl => {
         cl.send(
             JSON.stringify({
-                messages: messages.reverse()
+                messages: messages.slice(-10)
             })
         )
     });
