@@ -7,7 +7,7 @@ async function onConnection(ws){
 }
 
 async function onMessageSend(){
-    const messages = await Message.find();
+    const messages = await Message.find().sort('-created_at').limit(10);
     clients.forEach(cl => {
         cl.send(
             JSON.stringify({
