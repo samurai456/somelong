@@ -11,7 +11,7 @@ async function onMessageSend(){
     clients.forEach(cl => {
         cl.send(
             JSON.stringify({
-                messages: messages
+                messages: messages.reverse()
             })
         )
     });

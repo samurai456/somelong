@@ -2,7 +2,7 @@ const {Message} = require('../models/message');
 
 const getMessages = async (req, res) => {
     const messages = await Message.find().sort('-created_at').limit(10);
-    res.send({messages: messages});
+    res.send({messages: messages.reverse()});
 };
 
 const postMessage = async (req, res) => {
