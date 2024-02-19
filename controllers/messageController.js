@@ -1,6 +1,7 @@
 const {Message} = require('../models/message');
 
 const getMessages = async (req, res) => {
+    console.log(req.rawHeaders, "<<<<<<<+++___");
     const messages = await Message.find();
     res.send({messages: messages.slice(-10)});
 };
